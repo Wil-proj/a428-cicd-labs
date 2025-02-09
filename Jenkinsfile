@@ -19,9 +19,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                input message: 'Finished using the website? (Click "Proceed" to continue)'
+                echo 'application runs for 1 minute before shutting down'
+                sleep 60 
                 sh './jenkins/scripts/kill.sh'
-
             }
         }
     }
